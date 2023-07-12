@@ -3,6 +3,7 @@ using HtmlAgilityPack;
 using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Edge;
+using StockAnalysis.ResearchReport;
 using System;
 using System.Text;
 
@@ -26,69 +27,69 @@ using (IWebDriver driver = new EdgeDriver(options))
         foreach (var row in table.SelectNodes(".//tr").Skip(1))
         {
             var index = 1;
-            List<string> rowText = new List<string>();
+            List<string> rowText = new();
             foreach (var cell in row.SelectNodes("th|td"))
             {
                 switch (index)
                 {
                     case 1:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 2:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 3:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 4: break;
                     case 5:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 6:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 7:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 8:
                         {
                             var att = cell.SelectSingleNode("span").GetAttributeValue("title", "");
-                            rowText.Add(att);
+                            rowText.Add(att.NotNullValue());
                             break;
                         }
                     case 9:
                         {
                             var att = cell.SelectSingleNode("span").GetAttributeValue("title", "");
-                            rowText.Add(att);
+                            rowText.Add(att.NotNullValue());
                             break;
                         }
                     case 10:
                         {
                             var att = cell.SelectSingleNode("span").GetAttributeValue("title", "");
-                            rowText.Add(att);
+                            rowText.Add(att.NotNullValue());
                             break;
                         }
                     case 11:
                         {
-                            rowText.Add(cell.InnerText);
+                            rowText.Add(cell.InnerText.NotNullValue());
                             break;
                         }
                     case 12:
                         {
                             var att = cell.SelectSingleNode("span").GetAttributeValue("title", "");
-                            rowText.Add(att);
+                            rowText.Add(att.NotNullValue());
                             break;
                         }
                     default: break;
